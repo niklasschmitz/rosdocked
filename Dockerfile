@@ -8,7 +8,7 @@ ARG workspace
 ARG shell
 
 # Basic Utilities
-RUN apt-get -y update && apt-get install -y zsh screen tree sudo ssh synaptic
+RUN apt-get -y update && apt-get install -y curl zsh screen tmux tree sudo ssh synaptic
 
 # Latest X11 / mesa GL
 RUN apt-get install -y\
@@ -30,11 +30,16 @@ RUN apt-get install -y\
   libxkbcommon0
 
 # The rest of ROS-desktop
-RUN apt-get install -y ros-indigo-desktop-full
+RUN apt-get install -y --force-yes ros-indigo-desktop-full
 
 # Additional development tools
 RUN apt-get install -y x11-apps python-pip build-essential
 RUN pip install catkin_tools
+
+# CLion
+ENV VERSION 2019.1.3
+WORKDIR /opt
+RUN curl -L https://download.jetbrains.com/cpp/CLion-$VERSION.tar.gz | tar xvz
 
 # Make SSH available
 EXPOSE 22
