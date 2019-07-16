@@ -44,8 +44,8 @@ RUN curl -L https://download.jetbrains.com/cpp/CLion-$VERSION.tar.gz | tar xvz
 # Make SSH available
 EXPOSE 22
 
-# Mount the user's home directory
-VOLUME "${home}"
+# Mount the user's workspace directory
+VOLUME "${workspace}"
 
 # Clone user into docker image and set up X11 sharing 
 RUN \
