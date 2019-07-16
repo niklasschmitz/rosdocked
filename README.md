@@ -1,7 +1,6 @@
 ## rosdocked
 
-Run ROS Indigo / Ubuntu Trusty within Docker on Ubuntu Xenial or on any platform with a shared
-username, home directory, and X11.
+Run ROS Indigo / Ubuntu 14.04 Trusty and CLion within Docker on Ubuntu 18.04 or on any platform with a shared username, home directory, and X11.
 
 This enables you to build and run a persistent ROS Indigo workspace as long as
 you can run Docker images.
@@ -28,6 +27,18 @@ This will run the docker image.
 
 The image shares it's  network interface with the host, so you can run this in
 multiple terminals for multiple hooks into the docker environment.
+
+You can verify that you are now running on Ubuntu 14.04 by checking
+
+```
+lsb_release -a
+
+No LSB modules are available.
+Distributor ID:	Ubuntu
+Description:	Ubuntu 14.04.6 LTS
+Release:	14.04
+Codename:	trusty
+```
 
 ### Whale
 
